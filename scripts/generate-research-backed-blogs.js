@@ -9,31 +9,128 @@
 const fs = require('fs');
 const path = require('path');
 
+// ELTROPY AI VOICE AGENT SPECIFIC DATA
+const ELTROPY_CAPABILITIES = {
+  coreCapabilities: [
+    "Informational inquiries (routing numbers, branch info, product details)",
+    "Transactional capabilities (balance checks, transfers, loan payments, CD info)",
+    "Call deflection and containment (reduce live agent volume)",
+    "Agent handoff with context (full conversation transcript passed)",
+    "Multilingual support (English, Spanish, and expandable)",
+    "Customizable personality and brand voice"
+  ],
+
+  features: [
+    "Generative AI engine (learns from PDFs, websites, policies)",
+    "Deep core system integrations (Symitar, Fiserv Portico, CU Answers, Keystone)",
+    "Multi-layer authentication (PIN, SSN, voice biometrics, one-time passcodes)",
+    "Contextual AI routing and skill-based routing",
+    "Text-to-speech with natural human-like voices",
+    "AI Quality Monitoring & Conversational Intelligence",
+    "Omnichannel integration (voice, text, chat, video)",
+    "Self-service management of AI settings and knowledge base"
+  ],
+
+  implementationPhases: {
+    phase1: "Kickoff and Discovery (understand needs, infrastructure)",
+    phase2: "Setup and Configuration (bot building, knowledge base, core connectivity 2-4 weeks, intent selection)",
+    phase3: "Testing Phase (internal testing, client-led testing 4+ weeks, iterative adjustments)",
+    phase4: "Go-Live (production deployment, 15-20 minutes)",
+    phase5: "Post-Go-Live (success assurance period 2+ weeks, continuous optimization)"
+  },
+
+  implementationTimeline: {
+    straightforward: "4-6 weeks",
+    standard: "8-12 weeks",
+    complex: "12+ weeks",
+    coreConnectivity: "2-4 weeks"
+  },
+
+  performanceMetrics: {
+    containmentRates: {
+      initial: "40-60% out-of-the-box",
+      optimized: "70-80% with training",
+      benchmark1: "88% on 11.8M consumer questions",
+      benchmark2: "53% all inbound, 92% on questions asked",
+      range: "Can deflect 25-75% of calls"
+    },
+    callVolume: {
+      monthly: "20,000-50,000 calls per month",
+      annually: "Up to 1,000,000+ minutes",
+      avgInteractionTime: "~1.5 minutes"
+    },
+    accuracy: "98% accuracy on member requests",
+    adoptionRate: "52-60% standard adoption"
+  },
+
+  financialData: {
+    roi: "497% ROI demonstrated with <90 day payback",
+    minutePricing: ["12,000", "32,200", "42,500 (off-hours)", "70,000", "112,000", "135,000"],
+    implementationDiscount: "25-50% for longer contracts",
+    annualDiscount: "10-20% for multi-year contracts",
+    costSavings: "Significant reduction from call deflection"
+  },
+
+  coreIntegrations: [
+    "Symitar",
+    "Fiserv Portico",
+    "CU Answers",
+    "Keystone Correlation",
+    "Jack Henry (third-party, may extend timeline)"
+  ],
+
+  useCases: [
+    "Customer service automation (routine inquiries)",
+    "Replacing/enhancing IVR systems",
+    "24/7 member support",
+    "Call routing and redirection",
+    "Outbound communication (payment reminders, feedback, promotions)",
+    "Loan servicing and card services",
+    "Appointment management",
+    "Internal knowledge base"
+  ]
+};
+
 // Market Intelligence: Real-world competitor data & trends (Updated from competitive research)
 const MARKET_INSIGHTS = {
+  eltropyCompetitiveAdvantage: [
+    "98% accuracy on member requests",
+    "70-88% containment rates achievable",
+    "497% ROI with <90 day payback period",
+    "Multi-layer authentication (PIN, SSN, voice, one-time passcodes)",
+    "Deep integration with major core systems (Symitar, Fiserv, CU Answers)",
+    "Omnichannel integration (voice to text, video, chat)",
+    "Self-service management after initial setup",
+    "Both inbound and outbound capabilities"
+  ],
+
   competitorAnalysis: {
     gliaAI: {
       automation: "80%",
       productivity: "+20%",
       differentiator: "Voice AI trained on 1,000+ banking journeys",
-      strengths: ["Anti-hallucination framework", "Real-time context", "Intelligent routing"]
+      strengths: ["Anti-hallucination framework", "Real-time context", "Intelligent routing"],
+      weakness: "Enterprise-focused, may lack CU-specific features"
     },
     interfaceAI: {
       automation: "60-75%",
       savings: "$4.4M+ annual",
       differentiator: "Lightning-fast human-like conversations in 100+ languages",
-      caseStudy: "We Florida Financial: Reduced staff from 16 to 13 agents"
+      caseStudy: "We Florida Financial: Reduced staff from 16 to 13 agents",
+      weakness: "Limited core system integrations"
     },
     poshAI: {
       automation: "91%",
       abandonment_reduction: "93%",
       differentiator: "Purpose-built for banking since 2018, serves 120+ institutions",
-      clients: "Navy Federal CU, TD Bank, KeyBank"
+      clients: "Navy Federal CU, TD Bank, KeyBank",
+      weakness: "Complex platform, enterprise pricing"
     },
     aviaryAI: {
       differentiator: "Private LLM for financial services, TCPA-compliant",
       deployment: "< 2 weeks average",
-      unique: "Only major platform with inbound AND outbound voice automation"
+      unique: "Only major platform with inbound AND outbound voice automation",
+      weakness: "Smaller, less proven, newer company"
     }
   },
 
@@ -89,53 +186,55 @@ const MARKET_INSIGHTS = {
   marketTrend: "59% of credit unions have deployed generative AI; market projected to save $80B in contact center labor by 2026"
 };
 
-// Dynamic blog topics based on market research (with real competitive data)
+// Dynamic blog topics based on ELTROPY-specific capabilities and real numbers
 const ADAPTIVE_BLOG_TOPICS = [
   {
-    title: "The Credit Union Member Experience Crisis: Why Wait Times Are Costing You Members",
-    seoKeywords: ["credit union member retention", "member experience", "voice AI wait times"],
-    angle: "pain_point",
-    painPoint: MARKET_INSIGHTS.creditUnionPainPoints[0],
-    demographic: MARKET_INSIGHTS.creditUnionDemographics[2],
-    focus: "member satisfaction",
-    realWorldResult: "30 minutes → 30 seconds wait times post-implementation"
-  },
-  {
-    title: "$800K in Annual Savings: Real Credit Union ROI from Voice AI Implementation",
-    seoKeywords: ["voice AI ROI", "credit union cost savings", "AI implementation savings"],
-    angle: "roi_case_study",
-    metrics: MARKET_INSIGHTS.roiMetrics,
-    caseStudy: MARKET_INSIGHTS.realWorldExamples[1],
+    title: "98% Accuracy, 88% Containment: How Eltropy's Voice Agents Handle 11.8M Member Questions",
+    seoKeywords: ["AI voice agent accuracy", "call containment rate", "credit union automation"],
+    angle: "performance_metrics",
+    eltropyMetric: "98% accuracy on member requests, 88% containment on 11.8M questions",
     demographic: MARKET_INSIGHTS.creditUnionDemographics[0],
-    focus: "cost reduction",
-    competitor: "vs. Interface.ai ($4.4M), Posh AI (91% automation)"
+    focus: "proven performance",
+    implementation: "4-12 weeks depending on complexity"
   },
   {
-    title: "SR 11-7 & CFPB Compliance: Voice Agents That Meet Regulatory Requirements",
-    seoKeywords: ["SR 11-7 compliance", "CFPB voice AI", "regulatory automation"],
-    angle: "regulatory",
-    regulations: MARKET_INSIGHTS.regulatoryFrameworks,
-    demographic: MARKET_INSIGHTS.creditUnionDemographics[3],
-    focus: "compliance",
-    confidence: "SOC 2 certified, anti-hallucination framework"
+    title: "497% ROI in 90 Days: The Financial Reality of Voice AI Implementation",
+    seoKeywords: ["voice AI ROI", "AI implementation payback period", "credit union cost savings"],
+    angle: "financial_impact",
+    roiMetric: "497% ROI with payback period under 90 days",
+    eltropyCapability: "Multi-layer authentication, seamless core system integration",
+    demographic: MARKET_INSIGHTS.creditUnionDemographics[0],
+    focus: "financial transformation",
+    coreIntegrations: "Symitar, Fiserv Portico, CU Answers, Keystone"
   },
   {
-    title: "Staff Burnout & Scaling: How Credit Unions Handle Call Spikes With AI",
-    seoKeywords: ["loan officer burnout", "call volume automation", "credit union staffing"],
-    angle: "operational_efficiency",
-    painPoint: MARKET_INSIGHTS.creditUnionPainPoints[1],
-    demographic: MARKET_INSIGHTS.creditUnionDemographics[4],
-    focus: "operational efficiency",
-    benchmark: "66% call automation, 60-75% containment rate"
+    title: "From Transactional to Transformational: Eltropy's Voice Agent Full Capabilities",
+    seoKeywords: ["voice agent features", "transactional voice AI", "core system integration"],
+    angle: "capabilities_showcase",
+    capabilities: ELTROPY_CAPABILITIES.coreCapabilities,
+    features: ELTROPY_CAPABILITIES.features,
+    demographic: MARKET_INSIGHTS.creditUnionDemographics[1],
+    focus: "technical excellence",
+    differentiator: "Only platform with omnichannel integration + deep core connectivity"
   },
   {
-    title: "100+ Languages, 24/7 Support: Voice Agents for Inclusive Credit Unions",
-    seoKeywords: ["multilingual voice agents", "24/7 credit union support", "language accessibility"],
-    angle: "market_expansion",
-    theme: "inclusivity",
+    title: "4-12 Weeks to Go-Live: Eltropy's Proven Implementation Roadmap",
+    seoKeywords: ["voice agent implementation", "AI deployment timeline", "credit union technology"],
+    angle: "implementation_speed",
+    phases: ELTROPY_CAPABILITIES.implementationPhases,
+    timeline: "4-6 weeks straightforward, 8-12 weeks complex",
+    demographic: MARKET_INSIGHTS.creditUnionDemographics[1],
+    focus: "speed to value",
+    competitive: "Faster than enterprise solutions, more comprehensive than single-channel"
+  },
+  {
+    title: "Outbound + Inbound: Eltropy's Voice Agents Solve Problems Competitors Miss",
+    seoKeywords: ["outbound voice agents", "proactive member engagement", "voice AI"],
+    angle: "differentiation",
+    useCases: ["Payment reminders", "Feedback collection", "Promotional updates", "Appointment booking"],
     demographic: MARKET_INSIGHTS.creditUnionDemographics[2],
-    focus: "member accessibility",
-    marketTrend: "59% of credit unions deployed AI; market saves $80B in contact center labor by 2026"
+    focus: "member engagement",
+    eltropyUnique: "Unified inbound/outbound, omnichannel integration, self-service management"
   }
 ];
 
