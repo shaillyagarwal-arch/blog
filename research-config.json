@@ -1,0 +1,133 @@
+{
+  "researchSources": [
+    {
+      "name": "Interface AI",
+      "url": "https://www.interfaceai.com/blog",
+      "focus": "Voice agent capabilities",
+      "updateFrequency": "weekly"
+    },
+    {
+      "name": "Glia AI",
+      "url": "https://www.glia.com/blog",
+      "focus": "Customer engagement platform messaging",
+      "updateFrequency": "weekly"
+    },
+    {
+      "name": "Stripe Financial Services",
+      "url": "https://stripe.com/blog",
+      "focus": "Payment + voice integration trends",
+      "updateFrequency": "bi-weekly"
+    },
+    {
+      "name": "Credit Union National Association",
+      "url": "https://www.cuna.org/",
+      "focus": "Industry guidelines & member research",
+      "updateFrequency": "monthly"
+    },
+    {
+      "name": "FinTech Magazine",
+      "url": "https://fintechmag.com/",
+      "focus": "Industry trends & case studies",
+      "updateFrequency": "weekly"
+    }
+  ],
+
+  "creditUnionResearchTopics": [
+    "Digital transformation priorities for 2026",
+    "AI adoption challenges and concerns",
+    "Member experience expectations",
+    "Compliance automation needs",
+    "Cost reduction initiatives",
+    "Staff retention and burnout",
+    "Loan processing modernization"
+  ],
+
+  "competitorAnalysisAreas": [
+    "Feature positioning",
+    "ROI messaging",
+    "Target customer personas",
+    "Pricing models mentioned",
+    "Implementation timelines",
+    "Integration capabilities",
+    "Compliance features highlighted",
+    "Case studies and results"
+  ],
+
+  "creditUnionLeaderPersonas": [
+    {
+      "role": "Chief Financial Officer",
+      "priorities": ["ROI", "cost reduction", "implementation timeline"],
+      "painPoints": ["Budget constraints", "proving financial impact"],
+      "messagingStrategy": "Focus on quantified savings and fast payback period"
+    },
+    {
+      "role": "Chief Information Officer",
+      "priorities": ["Integration", "security", "scalability"],
+      "painPoints": ["Legacy system compatibility", "data security concerns"],
+      "messagingStrategy": "Emphasize API-first architecture and security certifications"
+    },
+    {
+      "role": "Compliance Officer",
+      "priorities": ["Regulatory adherence", "audit trails", "fair lending"],
+      "painPoints": ["Regulatory risk", "automation safety"],
+      "messagingStrategy": "Highlight pre-built compliance workflows and certifications"
+    },
+    {
+      "role": "Member Experience Officer",
+      "priorities": ["Member satisfaction", "availability", "personalization"],
+      "painPoints": ["High call volumes", "member expectations"],
+      "messagingStrategy": "Show member satisfaction improvements and 24/7 capability"
+    },
+    {
+      "role": "Loan Officer / Operations Manager",
+      "priorities": ["Efficiency", "processing speed", "volume handling"],
+      "painPoints": ["Staff burnout", "seasonal spikes", "manual work"],
+      "messagingStrategy": "Demonstrate productivity multipliers and workload reduction"
+    }
+  ],
+
+  "blogTopicCategories": [
+    {
+      "category": "Pain Point Blogs",
+      "description": "Address specific credit union challenges with agentic voice solutions",
+      "frequency": "2 per week"
+    },
+    {
+      "category": "ROI & Case Study Blogs",
+      "description": "Showcase financial impact and real-world implementations",
+      "frequency": "1 per week"
+    },
+    {
+      "category": "Compliance & Regulatory Blogs",
+      "description": "Address CFPB, GLBA, fair lending, and other regulatory concerns",
+      "frequency": "1 per week"
+    },
+    {
+      "category": "Competitive Comparison Blogs",
+      "description": "Subtle positioning against generic solutions or enterprise platforms",
+      "frequency": "1 per week"
+    }
+  ],
+
+  "contentStrategy": {
+    "voiceTone": "Executive advisor - confident, knowledgeable, solution-focused",
+    "callToActions": [
+      "Schedule free assessment",
+      "Download ROI calculator",
+      "Watch credit union case study",
+      "Read compliance guide",
+      "Join webinar on voice agents"
+    ],
+    "seoOptimization": {
+      "keywordStrategy": "Long-tail, credit-union-specific keywords",
+      "targetSearchIntent": "Solutions, comparisons, ROI validation",
+      "linkBuildingOpportunities": "Credit union industry publications, fintech outlets"
+    }
+  },
+
+  "updateSchedule": {
+    "dailyBlogGeneration": "10:00 AM IST",
+    "competitiveResearchUpdate": "Sunday 6:00 AM IST",
+    "creditUnionTrendAnalysis": "First of month, 8:00 AM IST"
+  }
+}
