@@ -9,118 +9,142 @@
 const fs = require('fs');
 const path = require('path');
 
-// Market Intelligence: Current trends & competitor positioning
+// Market Intelligence: Real-world competitor data & trends (Updated from competitive research)
 const MARKET_INSIGHTS = {
-  competitorThemes: {
-    interfaceAI: [
-      "Natural conversation handling",
-      "Multi-channel deployment",
-      "Intent recognition & routing"
-    ],
-    gliaAI: [
-      "Omnichannel customer engagement",
-      "Real-time analytics",
-      "Agent escalation workflows"
-    ],
-    stripe: [
-      "Payment processing integration",
-      "Fraud detection",
-      "Compliance automation"
-    ]
+  competitorAnalysis: {
+    gliaAI: {
+      automation: "80%",
+      productivity: "+20%",
+      differentiator: "Voice AI trained on 1,000+ banking journeys",
+      strengths: ["Anti-hallucination framework", "Real-time context", "Intelligent routing"]
+    },
+    interfaceAI: {
+      automation: "60-75%",
+      savings: "$4.4M+ annual",
+      differentiator: "Lightning-fast human-like conversations in 100+ languages",
+      caseStudy: "We Florida Financial: Reduced staff from 16 to 13 agents"
+    },
+    poshAI: {
+      automation: "91%",
+      abandonment_reduction: "93%",
+      differentiator: "Purpose-built for banking since 2018, serves 120+ institutions",
+      clients: "Navy Federal CU, TD Bank, KeyBank"
+    },
+    aviaryAI: {
+      differentiator: "Private LLM for financial services, TCPA-compliant",
+      deployment: "< 2 weeks average",
+      unique: "Only major platform with inbound AND outbound voice automation"
+    }
   },
 
   creditUnionPainPoints: [
-    "Member wait times & satisfaction",
-    "Staff burnout from repetitive calls",
-    "Compliance violations & regulatory fines",
-    "High cost per member interaction",
-    "Limited 24/7 support capacity",
-    "Loan origination delays",
-    "Member authentication challenges",
-    "Seasonal call volume spikes"
+    "Member wait times (30 minutes → 30 seconds post-implementation)",
+    "Staff burnout from 60-90% repetitive calls",
+    "Compliance violations (SR 11-7, GLBA, CFPB violations)",
+    "High cost per member interaction (86% reduction with AI)",
+    "Limited 24/7 support (46% of CUs now adopting AI chatbots)",
+    "Call volume spikes during crises (core migrations, seasonal)",
+    "Call abandonment rates (up to 93% reduction possible)",
+    "Member authentication challenges"
   ],
 
-  regulatoryThemes: [
-    "GLBA (Gramm-Leach-Bliley Act) compliance",
-    "CFPB regulations on member protection",
-    "Fair lending practices with AI",
-    "Data privacy in voice interactions",
-    "Call recording & consent management"
+  regulatoryFrameworks: [
+    "SR 11-7 (Model Risk Guidance)",
+    "GLBA (Gramm-Leach-Bliley Act)",
+    "CFPB Regulations on member protection",
+    "PCI DSS (payment handling)",
+    "TCPA (Telephone Consumer Protection Act)",
+    "EU AI Act compliance (by August 2, 2026)",
+    "Bank Secrecy Act / AML requirements",
+    "GDPR / CCPA (data privacy)"
   ],
 
   creditUnionDemographics: [
-    "CFOs focused on cost reduction",
+    "CFOs focused on cost reduction ($150K-$800K+ annual savings)",
     "CIOs managing legacy system integration",
-    "Member experience officers",
-    "Compliance officers",
-    "Loan officers dealing with volume"
+    "Member experience officers (45%+ less inbound calls post-deploy)",
+    "Compliance officers (regulatory safety & audit trails)",
+    "Operations managers (50%+ agent productivity gain)"
   ],
 
   roiMetrics: [
-    "Cost per interaction reduction: 60-80%",
-    "Member satisfaction scores: +35%",
-    "Average handle time reduction: 50%",
-    "Staff productivity increase: 3x",
-    "Implementation time: 6-12 weeks"
+    "Call automation rate: 60-91% (industry consensus)",
+    "Cost per interaction: 86% reduction vs. live agent",
+    "Member satisfaction: 4.7/5.0 on digital interactions",
+    "Wait time: 30 minutes → 30 seconds",
+    "Agent productivity: 20%+ improvement on complex calls",
+    "Annual savings: $150K-$800K+ depending on volume",
+    "Call abandonment: Up to 93% reduction",
+    "Implementation: 2-12 weeks depending on platform"
   ],
 
-  caseStudyTopics: [
-    "5,000+ member credit union saves $500K annually",
-    "Regional credit union reduces loan processing time by 70%",
-    "Small credit union eliminates phone queues",
-    "Credit union achieves CFPB compliance through voice AI",
-    "Multilingual credit union expands to 8 languages"
-  ]
+  realWorldExamples: [
+    "We Florida Financial: Absorbed core migration surge, reduced staff from 16 to 13",
+    "Weokie CU: 66% call automation, $800K+ annual savings",
+    "Community bank: Handles 60%+ calls during business, 75%+ after hours",
+    "Great Lakes CU: Improved containment from 25% (IVR) to 60-75%",
+    "BCU: 52% success rate with hurricane relief outreach"
+  ],
+
+  marketTrend: "59% of credit unions have deployed generative AI; market projected to save $80B in contact center labor by 2026"
 };
 
-// Dynamic blog topics based on market research
+// Dynamic blog topics based on market research (with real competitive data)
 const ADAPTIVE_BLOG_TOPICS = [
   {
-    title: "The Credit Union Member Experience Challenge: Why 67% Are Switching to Banks",
-    seoKeywords: ["credit union member retention", "member experience", "digital banking"],
+    title: "The Credit Union Member Experience Crisis: Why Wait Times Are Costing You Members",
+    seoKeywords: ["credit union member retention", "member experience", "voice AI wait times"],
     angle: "pain_point",
     painPoint: MARKET_INSIGHTS.creditUnionPainPoints[0],
     demographic: MARKET_INSIGHTS.creditUnionDemographics[2],
-    focus: "member satisfaction"
+    focus: "member satisfaction",
+    realWorldResult: "30 minutes → 30 seconds wait times post-implementation"
   },
   {
-    title: "Voice AI ROI for Credit Unions: Real Numbers from Real Implementations",
-    seoKeywords: ["voice AI ROI", "credit union AI investment", "voice agent cost savings"],
+    title: "$800K in Annual Savings: Real Credit Union ROI from Voice AI Implementation",
+    seoKeywords: ["voice AI ROI", "credit union cost savings", "AI implementation savings"],
     angle: "roi_case_study",
     metrics: MARKET_INSIGHTS.roiMetrics,
-    caseStudy: MARKET_INSIGHTS.caseStudyTopics[0],
+    caseStudy: MARKET_INSIGHTS.realWorldExamples[1],
     demographic: MARKET_INSIGHTS.creditUnionDemographics[0],
-    focus: "cost reduction"
+    focus: "cost reduction",
+    competitor: "vs. Interface.ai ($4.4M), Posh AI (91% automation)"
   },
   {
-    title: "CFPB Compliance & Voice Agents: Meeting Regulatory Requirements Without Manual Overhead",
-    seoKeywords: ["CFPB compliance voice AI", "regulatory automation", "credit union compliance"],
+    title: "SR 11-7 & CFPB Compliance: Voice Agents That Meet Regulatory Requirements",
+    seoKeywords: ["SR 11-7 compliance", "CFPB voice AI", "regulatory automation"],
     angle: "regulatory",
-    regulation: MARKET_INSIGHTS.regulatoryThemes[1],
-    demographic: MARKET_INSIGHTS.creditUnionDemographics[4],
-    focus: "compliance"
-  },
-  {
-    title: "Loan Officer Burnout Crisis: How Voice Agents Handle Pre-Qualification at Scale",
-    seoKeywords: ["loan officer automation", "loan pre-qualification AI", "credit union lending"],
-    angle: "operational_efficiency",
-    painPoint: MARKET_INSIGHTS.creditUnionPainPoints[6],
+    regulations: MARKET_INSIGHTS.regulatoryFrameworks,
     demographic: MARKET_INSIGHTS.creditUnionDemographics[3],
-    focus: "loan processing"
+    focus: "compliance",
+    confidence: "SOC 2 certified, anti-hallucination framework"
   },
   {
-    title: "Beyond English: Serving Diverse Credit Union Communities with Multilingual Voice Agents",
-    seoKeywords: ["multilingual voice agents", "credit union diversity", "language accessibility"],
+    title: "Staff Burnout & Scaling: How Credit Unions Handle Call Spikes With AI",
+    seoKeywords: ["loan officer burnout", "call volume automation", "credit union staffing"],
+    angle: "operational_efficiency",
+    painPoint: MARKET_INSIGHTS.creditUnionPainPoints[1],
+    demographic: MARKET_INSIGHTS.creditUnionDemographics[4],
+    focus: "operational efficiency",
+    benchmark: "66% call automation, 60-75% containment rate"
+  },
+  {
+    title: "100+ Languages, 24/7 Support: Voice Agents for Inclusive Credit Unions",
+    seoKeywords: ["multilingual voice agents", "24/7 credit union support", "language accessibility"],
     angle: "market_expansion",
     theme: "inclusivity",
     demographic: MARKET_INSIGHTS.creditUnionDemographics[2],
-    focus: "member accessibility"
+    focus: "member accessibility",
+    marketTrend: "59% of credit unions deployed AI; market saves $80B in contact center labor by 2026"
   }
 ];
 
 function generateCompetitiveContext(topic) {
-  const competitors = Object.keys(MARKET_INSIGHTS.competitorThemes);
-  const differentiation = `While competitors like ${competitors.join(', ')} focus on general customer engagement, Eltropy's agentic voice agents are purpose-built for credit unions' unique regulatory and member-centric needs.`;
+  const competitors = Object.keys(MARKET_INSIGHTS.competitorAnalysis);
+  const competitorNames = competitors
+    .map(c => c === 'gliaAI' ? 'Glia' : c === 'interfaceAI' ? 'Interface.ai' : c === 'poshAI' ? 'Posh AI' : 'Aviary AI')
+    .join(', ');
+  const differentiation = `While competitors like ${competitorNames} are strong platforms, Eltropy's agentic voice agents are purpose-built for credit unions' unique regulatory requirements (SR 11-7, GLBA, CFPB) and member-centric operations.`;
   return differentiation;
 }
 
@@ -356,7 +380,8 @@ async function main() {
       topPainPoints: MARKET_INSIGHTS.creditUnionPainPoints.slice(0, 3),
       roiHighlights: MARKET_INSIGHTS.roiMetrics.slice(0, 3),
       targetDemographics: MARKET_INSIGHTS.creditUnionDemographics,
-      competitorAnalysis: Object.keys(MARKET_INSIGHTS.competitorThemes)
+      competitors: Object.keys(MARKET_INSIGHTS.competitorAnalysis),
+      marketTrend: MARKET_INSIGHTS.marketTrend
     }
   };
 
