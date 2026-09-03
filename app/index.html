@@ -10,11 +10,37 @@
 <body>
 
   <header class="app-header">
-    <div class="inner">
-      <h1>Eltropy Blog Generator</h1>
-      <p>Paste a transcript, case study, or idea below. Get a structured draft. Edit it right here.</p>
+    <div class="inner header-inner">
+      <div>
+        <h1>Eltropy Blog Generator</h1>
+        <p>Paste a transcript, case study, or idea. Get a full blog. Edit, listen, download.</p>
+      </div>
+      <button id="settings-toggle" class="btn btn-ghost btn-sm" type="button" aria-expanded="false">
+        ⚙ API Key
+      </button>
     </div>
   </header>
+
+  <!-- API key settings panel -->
+  <div id="settings-panel" class="settings-panel hidden">
+    <div class="inner">
+      <div class="settings-inner">
+        <label class="settings-label" for="api-key-input">
+          Anthropic API Key
+          <span class="settings-hint">Stored in your browser only — never sent anywhere except Anthropic's API.</span>
+        </label>
+        <div class="settings-row">
+          <input id="api-key-input" type="password" class="key-input" placeholder="sk-ant-api03-…" autocomplete="off" />
+          <button id="save-key-btn" class="btn btn-primary btn-sm" type="button">Save</button>
+          <button id="clear-key-btn" class="btn btn-ghost btn-sm" type="button">Clear</button>
+        </div>
+        <p class="settings-note">
+          Get your key at <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">console.anthropic.com</a>.
+          The key is saved in <code>localStorage</code> and never leaves your browser except in direct requests to <code>api.anthropic.com</code>.
+        </p>
+      </div>
+    </div>
+  </div>
 
   <main class="inner">
 
@@ -42,10 +68,15 @@
       </div>
     </section>
 
+    <!-- No-key warning -->
+    <div id="no-key-banner" class="banner banner-warn hidden">
+      ⚠ No API key set. Click <strong>⚙ API Key</strong> in the header to add yours.
+    </div>
+
     <!-- Output card -->
     <section id="output-card" class="card output-card hidden">
       <div class="output-toolbar">
-        <span class="card-label">Your draft <span class="edit-hint">(click the text to edit)</span></span>
+        <span class="card-label">Your draft <span class="edit-hint">(click to edit)</span></span>
 
         <div class="spacer"></div>
 
@@ -61,17 +92,12 @@
       </div>
 
       <div id="blog-output" class="blog-output" contenteditable="true" spellcheck="true"></div>
-
-      <p class="draft-note">
-        This is a structural draft built from the playbook rules, not an AI-written blog yet.
-        See <code>app/script.js</code> for where to plug in a real generation call.
-      </p>
     </section>
 
   </main>
 
   <footer class="inner">
-    Built as a static tool — no backend, no data leaves your browser.
+    No backend. Your key stays in your browser. Calls go directly to <code>api.anthropic.com</code>.
   </footer>
 
   <script src="script.js"></script>
