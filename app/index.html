@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Eltropy Blog Generator</title>
+<meta name="description" content="Paste a resource or idea, get a structured blog draft, edit it in place, and listen to it read aloud." />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="app-header">
+    <div class="inner">
+      <h1>Eltropy Blog Generator</h1>
+      <p>Paste a transcript, case study, or idea below. Get a structured draft. Edit it right here.</p>
+    </div>
+  </header>
+
+  <main class="inner">
+
+    <!-- Input card -->
+    <section class="card input-card">
+      <label for="resource-input" class="card-label">Your resource</label>
+      <textarea
+        id="resource-input"
+        placeholder="Paste an interview transcript, case study, stat sheet, or just a raw idea here…"
+        rows="8"
+      ></textarea>
+
+      <div class="input-toolbar">
+        <button id="attach-btn" class="btn btn-ghost" type="button">
+          <span class="icon">📎</span> Attach a file
+        </button>
+        <input id="attach-file" type="file" accept=".txt,.md,.markdown" hidden />
+        <span id="attach-filename" class="filename"></span>
+
+        <div class="spacer"></div>
+
+        <button id="generate-btn" class="btn btn-primary" type="button">
+          Generate Blog →
+        </button>
+      </div>
+    </section>
+
+    <!-- Output card -->
+    <section id="output-card" class="card output-card hidden">
+      <div class="output-toolbar">
+        <span class="card-label">Your draft <span class="edit-hint">(click the text to edit)</span></span>
+
+        <div class="spacer"></div>
+
+        <button id="listen-btn" class="btn btn-ghost" type="button">
+          <span class="icon">🔊</span> Listen
+        </button>
+        <button id="copy-btn" class="btn btn-ghost" type="button">
+          <span class="icon">⧉</span> Copy
+        </button>
+        <button id="download-btn" class="btn btn-ghost" type="button">
+          <span class="icon">⬇</span> Download .md
+        </button>
+      </div>
+
+      <div id="blog-output" class="blog-output" contenteditable="true" spellcheck="true"></div>
+
+      <p class="draft-note">
+        This is a structural draft built from the playbook rules, not an AI-written blog yet.
+        See <code>app/script.js</code> for where to plug in a real generation call.
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="inner">
+    Built as a static tool — no backend, no data leaves your browser.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
